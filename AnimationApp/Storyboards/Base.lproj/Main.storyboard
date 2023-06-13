@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOW-le-lQA">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOW-le-lQA" customClass="SpringView" customModule="SpringAnimation">
                                 <rect key="frame" x="76.666666666666686" y="118" width="240" height="240"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
@@ -36,15 +36,18 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Run"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="runAnimationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aZc-rN-5X2"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbB-gM-ohV">
-                                <rect key="frame" x="117.33333333333333" y="378" width="158.33333333333337" height="278"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbB-gM-ohV" customClass="SpringLabel" customModule="SpringAnimation">
+                                <rect key="frame" x="76.666666666666686" y="378" width="240" height="278"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -53,7 +56,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="VbB-gM-ohV" firstAttribute="width" secondItem="qOW-le-lQA" secondAttribute="width" multiplier="0.66" id="9up-X2-B8w"/>
+                            <constraint firstItem="VbB-gM-ohV" firstAttribute="width" secondItem="qOW-le-lQA" secondAttribute="width" id="9up-X2-B8w"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jdh-sg-eZL" secondAttribute="bottom" multiplier="1.01" constant="100" id="KoH-gh-AZW"/>
                             <constraint firstItem="qOW-le-lQA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aGC-Wz-198"/>
                             <constraint firstItem="VbB-gM-ohV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dfG-FT-Bj5"/>
@@ -65,6 +68,11 @@
                             <constraint firstItem="jdh-sg-eZL" firstAttribute="width" secondItem="qOW-le-lQA" secondAttribute="width" id="yyU-Iy-0QN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="greenView" destination="qOW-le-lQA" id="k0N-Pe-h6k"/>
+                        <outlet property="infoLabel" destination="VbB-gM-ohV" id="HIR-nR-H3b"/>
+                        <outlet property="runButton" destination="jdh-sg-eZL" id="512-Z0-Lgo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

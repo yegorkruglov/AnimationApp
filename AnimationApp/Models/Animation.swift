@@ -15,7 +15,7 @@ struct Animation {
     static func getAnimations() -> [Animation] {
         var animations: [Animation] = []
         
-        var animationsNames = DataStore.shared.animationsNames.shuffled()
+        let animationsNames = DataStore.shared.animationsNames.shuffled()
         let curves = DataStore.shared.curves.shuffled()
         
         for animationsName in animationsNames {
