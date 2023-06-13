@@ -25,6 +25,8 @@ final class ViewController: UIViewController {
     }
     
     @IBAction func runAnimationPressed(_ sender: UIButton) {
+        setupInfo(from: currentAnimation)
+        
         greenView.animation = currentAnimation.name
         greenView.curve = currentAnimation.curve
         greenView.force = currentAnimation.force
@@ -32,16 +34,10 @@ final class ViewController: UIViewController {
         greenView.delay = currentAnimation.delay
         greenView.animate()
         
-//        infoLabel.animation = "fadeOut"
-//        infoLabel.duration = 1
-//        infoLabel.delay = 5
-//        infoLabel.animate()
-        
         currentAnimation = animations.randomElement()
-        setupInfo(from: currentAnimation)
+        sender.setTitle("Run \(currentAnimation.name)", for: .normal)
         
         infoLabel.animation = "fadeIn"
-        infoLabel.duration = 1
         infoLabel.animate()
     }
     
