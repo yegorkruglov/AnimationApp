@@ -14,15 +14,13 @@ final class ViewController: UIViewController {
     @IBOutlet var infoLabel: SpringLabel!
     @IBOutlet var runButton: UIButton!
     
-    var currentAnimation: Animation!
+    private var currentAnimation = Animation.getAnimation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentAnimation = Animation.getAnimation()
         setupInfo(from: currentAnimation)
     }
-    
     
     @IBAction func runButtonPressed() {
         setupInfo(from: currentAnimation)
