@@ -14,13 +14,12 @@ final class ViewController: UIViewController {
     @IBOutlet var infoLabel: SpringLabel!
     @IBOutlet var runButton: UIButton!
     
-    let animations = Animation.getAnimations()
     var currentAnimation: Animation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentAnimation = animations.randomElement()
+        currentAnimation = Animation.getAnimation()
         setupInfo(from: currentAnimation)
     }
     
@@ -35,7 +34,7 @@ final class ViewController: UIViewController {
         greenView.delay = currentAnimation.delay
         greenView.animate()
         
-        currentAnimation = animations.randomElement()
+        currentAnimation = Animation.getAnimation()
         runButton.setTitle("Run \(currentAnimation.name)", for: .normal)
         
         infoLabel.animation = "fadeIn"
@@ -43,18 +42,7 @@ final class ViewController: UIViewController {
     }
     
     private func setupInfo(from animation: Animation) {
-        infoLabel.text = String(
-            format: """
-            Animation: \(animation.name)
-            Curve: \(animation.curve)
-            Force: %.2f
-            Duration: %.2f
-            Delay: %.2f
-            """,
-            animation.force,
-            animation.duration,
-            animation.delay
-        )
+        infoLabel.text = currentAnimation.description
         
         runButton.setTitle("Run \(currentAnimation.name)", for: .normal)
     }

@@ -11,45 +11,29 @@ struct Animation {
     let force: Double
     let duration: Double
     let delay: Double
-    let description: String
     
-    static func getAnimations() -> [Animation] {
-        var animations: [Animation] = []
-        
-        let animationsNames = DataStore.shared.animationsNames.shuffled()
-        let curves = DataStore.shared.curves.shuffled()
-        
-        for animationsName in animationsNames {
-            let animation = animationsName
-            let curve = curves.randomElement()
-            let force = Double.random(in: 0.5...3)
-            let duration = Double.random(in: 0.5...3)
-            let delay = Double.random(in: 0...1)
-            var description: String {
-                String(
-                    format: """
-                    Animation: \(animation)
-                    Curve: \(String(describing: curve))
-                    Force: %.2f
-                    Duration: %.2f
-                    Delay: %.2f
-                    """,
-                    force,
-                    duration,
-                    delay
-                )
-            }
-            
-            animations.append(Animation(
-                name: animation.rawValue,
-                curve: curve?.rawValue ?? "easeIn",
-                force: force,
-                duration: duration,
-                delay: delay,
-                description: description))
-        }
-        
-        return animations
+    var description: String {
+        String(
+            format: """
+            Animation: \(name)
+            Curve: \(curve)
+            Force: %.2f
+            Duration: %.2f
+            Delay: %.2f
+            """,
+            force,
+            duration,
+            delay
+        )
+    }
+    
+    static func getAnimation() -> Animation {
+        Animation(
+            name: DataStore.shared.animationsNames.randomElement()?.rawValue ?? "zoomIn",
+            curve: DataStore.shared.curves.randomElement()?.rawValue ?? "easeIn",
+            force: Double.random(in: 0.5...3),
+            duration: Double.random(in: 0.5...1.5),
+            delay: Double.random(in: 0.5...0.7))
     }
     
 }
