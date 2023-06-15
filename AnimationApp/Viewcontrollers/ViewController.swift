@@ -24,7 +24,8 @@ final class ViewController: UIViewController {
         setupInfo(from: currentAnimation)
     }
     
-    @IBAction func runAnimationPressed(_ sender: UIButton) {
+    
+    @IBAction func runButtonPressed() {
         setupInfo(from: currentAnimation)
         
         greenView.animation = currentAnimation.name
@@ -35,7 +36,7 @@ final class ViewController: UIViewController {
         greenView.animate()
         
         currentAnimation = animations.randomElement()
-        sender.setTitle("Run \(currentAnimation.name)", for: .normal)
+        runButton.setTitle("Run \(currentAnimation.name)", for: .normal)
         
         infoLabel.animation = "fadeIn"
         infoLabel.animate()

@@ -43,7 +43,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="runAnimationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aZc-rN-5X2"/>
+                                    <action selector="runButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="v7q-cE-x8D"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbB-gM-ohV" customClass="SpringLabel" customModule="SpringAnimation">
@@ -71,7 +71,7 @@
                     <connections>
                         <outlet property="greenView" destination="qOW-le-lQA" id="k0N-Pe-h6k"/>
                         <outlet property="infoLabel" destination="VbB-gM-ohV" id="HIR-nR-H3b"/>
-                        <outlet property="runButton" destination="jdh-sg-eZL" id="512-Z0-Lgo"/>
+                        <outlet property="runButton" destination="jdh-sg-eZL" id="j41-X9-pGn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

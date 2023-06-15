@@ -11,6 +11,7 @@ struct Animation {
     let force: Double
     let duration: Double
     let delay: Double
+    let description: String
     
     static func getAnimations() -> [Animation] {
         var animations: [Animation] = []
@@ -20,17 +21,32 @@ struct Animation {
         
         for animationsName in animationsNames {
             let animation = animationsName
-            let curve = curves.randomElement() ?? "easeIn"
+            let curve = curves.randomElement()
             let force = Double.random(in: 0.5...3)
-            let duaration = Double.random(in: 0.5...3)
+            let duration = Double.random(in: 0.5...3)
             let delay = Double.random(in: 0...1)
+            var description: String {
+                String(
+                    format: """
+                    Animation: \(animation)
+                    Curve: \(String(describing: curve))
+                    Force: %.2f
+                    Duration: %.2f
+                    Delay: %.2f
+                    """,
+                    force,
+                    duration,
+                    delay
+                )
+            }
             
             animations.append(Animation(
-                name: animation,
-                curve: curve,
+                name: animation.rawValue,
+                curve: curve?.rawValue ?? "easeIn",
                 force: force,
-                duration: duaration,
-                delay: delay))
+                duration: duration,
+                delay: delay,
+                description: description))
         }
         
         return animations
